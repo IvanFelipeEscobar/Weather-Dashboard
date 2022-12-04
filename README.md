@@ -1,11 +1,20 @@
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-```
+# Weather Dashboard
+
+## Description
+
+Weather Dashboard provides an input area to select a city and a submit button, any previous searches will also be rendered onscreen as
+
+clickacle objects. once a city is selected, the application provides current conditions such as temperature, humidity, and wind speed. the smae info 
+
+is also provided for a 5 day forecast.
+
+
+![Deployed site screenshot](./assets/images/Screen%20Shot%202022-12-04%20at%203.07.59%20PM.png)
+
+[Link to Deployed site](https://ivanfelipeescobar.github.io/Weather-Dashboard/)
+
+## Credit
+
+Weather info retrieved using OpenWeatherAPI
+
+Created by Ivan Felipe Escobar
