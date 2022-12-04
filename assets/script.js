@@ -5,7 +5,8 @@ var todayDate = moment().format(`L`)
 var savedCities = JSON.parse(localStorage.getItem(`city`)) || []
 
 init(savedCities)
-
+//event handlers :
+//search button
 $(`#citySubmit`).on(`click`, function() {
     var selectedCity = $("#city").val().trim()
     
@@ -13,18 +14,20 @@ $(`#citySubmit`).on(`click`, function() {
     getForecast(selectedCity)
     
     if(!savedCities.includes(selectedCity)){
-        savedCities.push(selectedCity)
+        savedCities.push(selectedCity)//if city entered is not in savedcities array, it will be added to array
         var cityArchiveEl = `     
         <button type="button" class="btn btn-primary" id="savedCitySubmit" city-data="${selectedCity}">${selectedCity}</button>`
         $(`#cityArchive`).append(cityArchiveEl)
       }   
       localStorage.setItem("city", JSON.stringify(savedCities))
 })
+//saved cities as buttons
 $(document).on("click", "#savedCitySubmit", function() {
     var archiveCity = $(this).text();
     getWeatherToday(archiveCity)
     getForecast(archiveCity)   
 })
+//provided a clear history and refresh page button
 $(`#clear`).on("click", function () {
     localStorage.clear();
     searchHistory = [];
@@ -34,7 +37,6 @@ $(`#clear`).on("click", function () {
 
 
 function getWeatherToday(selectedCity){
-    var selectedCity = $("#city").val().trim()
   
   //use user input to make API call for rendering curent date weather info
     var weatherRequest = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&units=imperial&appid=${APIkey}`
@@ -42,7 +44,7 @@ function getWeatherToday(selectedCity){
         url: weatherRequest,
         method: `GET`
     }).then(function(weatherData){
-        console.log(weatherData)
+        console.log(weatherData)//using object retrieved from API render weather info onto page
         $(`#today`).empty()
         var todayEl = ` 
         <div class="card">
@@ -60,7 +62,7 @@ function getWeatherToday(selectedCity){
         $(`#today`).append(todayEl)
      })}
  
-
+//retrieve 5 day data w/api call based on user input
 function getForecast(selectedCity){
     var forecastRequest = `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&exclude=current,minutely,hourly,alerts&units=imperial&appid=${APIkey}`
     $.ajax({
@@ -91,7 +93,7 @@ function getForecast(selectedCity){
             $(`#forecastDisplay`).append(forecastEl)
             i=i+8;
         }})}
-function init(){
+function init(){//populate city archive from local storage displaying entries searched in the past
     savedCities.forEach(function(i){
         var cityArchiveEl = `     
         <button type="button" class="btn btn-primary" id="savedCitySubmit" city-data="${i}">${i}</button>`
