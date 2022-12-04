@@ -34,6 +34,7 @@ $(`#clear`).on("click", function () {
 
 
 function getWeatherToday(selectedCity){
+    var selectedCity = $("#city").val().trim()
   
   //use user input to make API call for rendering curent date weather info
     var weatherRequest = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&units=imperial&appid=${APIkey}`
@@ -59,6 +60,7 @@ function getWeatherToday(selectedCity){
         $(`#today`).append(todayEl)
      })}
  
+
 function getForecast(selectedCity){
     var forecastRequest = `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&exclude=current,minutely,hourly,alerts&units=imperial&appid=${APIkey}`
     $.ajax({
@@ -67,6 +69,7 @@ function getForecast(selectedCity){
     }).then(function(forecastData){
         console.log(forecastData)
         console.log(moment.unix(forecastData.list[0].dt).format("MM/DD/YYYY"))
+
         document.getElementById(`5dtext`).classList.remove(`hide`)
         $(`#forecastDisplay`).empty()
         
@@ -94,3 +97,4 @@ function init(){
         <button type="button" class="btn btn-primary" id="savedCitySubmit" city-data="${i}">${i}</button>`
         $(`#cityArchive`).append(cityArchiveEl)
 })}
+
