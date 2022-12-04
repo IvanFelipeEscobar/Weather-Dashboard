@@ -4,3 +4,8 @@
 .list {
     list-style: none;
 }
+
+.list li {
+    font-size: medium;
+    font-weight: bold;
+}
