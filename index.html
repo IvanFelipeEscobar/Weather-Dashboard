@@ -29,9 +29,10 @@
           </div>
         </div>
         <div class="card" style="max-width: 18rem;">
-          <ul class="card-body list"><!--saved cities-->
-            <li><button type="button" class="btn btn-primary" id="citySubmit">saved city</button></li>
-          </ul>
+          <div class="d-grid gap-2" id="cityArchive">
+          <!--saved cities-->
+           <button type="button" class="btn btn-danger" id="clear">CLEAR MEMORY</button>
+          </div>
         </div>
       </div>
       <div class="col-sm-9">
@@ -41,7 +42,11 @@
           </div>
         </div>
         <br>
+
+        <h3 id="5dtext" class="hide">5 Day Forecast</h3>
+
         <h3>5 Day Forecast</h3>
+
         <div class="row" id="forecastDisplay">   <!--5 day forecast rendered here-->           
         </div>
       </div>  
