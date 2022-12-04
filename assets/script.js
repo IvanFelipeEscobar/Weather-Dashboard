@@ -72,7 +72,6 @@ function getForecast(selectedCity){
         console.log(forecastData)
         console.log(moment.unix(forecastData.list[0].dt).format("MM/DD/YYYY"))
 
-        document.getElementById(`5dtext`).classList.remove(`hide`)
         $(`#forecastDisplay`).empty()
         
         let i = 4
