@@ -1,15 +1,10 @@
-.hide {
-    display: none;
-}
-.list {
-    list-style: none;
-}
 
-.list li {
-    font-size: medium;
-    font-weight: bold;
+.list {
+  list-style: none;
 }
 button {
-    text-align: center;
-    
+  text-align: center;
+}
+* {
+  box-sizing: border-box;
 }
